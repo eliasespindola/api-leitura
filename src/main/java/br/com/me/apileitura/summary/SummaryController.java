@@ -83,6 +83,15 @@ class SummaryController {
         return ResponseEntity.ok(currentChapter.get());
     }
 
+    @PostMapping(value = "/api/summary/{id}/finish")
+    public ResponseEntity finishSummary(@PathVariable("id") Long id, Integer currentPage){
+        Summary summary = summaryRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Summary not found"));
+        if(currentPage > summary.getChapters().size()){
+            return ResponseEntity.ok(summary.getFirstChapter());
+        }
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Cannot be finish summary");
+    }
+
     @GetMapping("/all-cookies")
     public String readAllCookies(HttpServletRequest request) {
 
