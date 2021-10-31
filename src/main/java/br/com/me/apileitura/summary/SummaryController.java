@@ -1,8 +1,6 @@
 package br.com.me.apileitura.summary;
 
 import br.com.me.apileitura.infra.cookie.Cookies;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.springframework.http.ResponseEntity.created;
@@ -51,7 +51,7 @@ class SummaryController {
         return ok(firstSummary);
     }
 
-    @GetMapping(value = "/api/summary/{id}/next-chapter")
+    @PostMapping(value = "/api/summary/{id}/next-chapter")
     public ResponseEntity nextChapter(@PathVariable("id") Long id, Integer currentChapter, HttpServletResponse response){
         Summary summary = summaryRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Summary not found"));
         Optional<Chapter> possibleChapter = SummaryStatus.NEXT.execute(summary.getChapters(), currentChapter);
@@ -62,7 +62,7 @@ class SummaryController {
         return ok(possibleChapter.get());
     }
 
-    @GetMapping(value = "/api/summary/{id}/previous-chapter")
+    @PostMapping(value = "/api/summary/{id}/previous-chapter")
     public ResponseEntity previousChapter(@PathVariable("id") Long id, Integer currentChapter, HttpServletResponse response){
         Summary summary = summaryRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Summary not found"));
         Optional<Chapter> possibleChapter = SummaryStatus.PREVIOUS.execute(summary.getChapters(), currentChapter);

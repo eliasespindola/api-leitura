@@ -1,14 +1,12 @@
 package br.com.me.apileitura.summary;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
-import java.util.*;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
