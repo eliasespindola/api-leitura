@@ -8,3 +8,8 @@ O que está feito:
 
 - [x] Funcionalidades feitas
 - [ ] Testes
+
+
+Poderia ser feito:
+- [] Lidar mais com os usuarios em relacao aos livros
+- [] Fazer uma geração de PDF
