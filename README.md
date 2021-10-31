@@ -14,3 +14,5 @@ Para um futuro:
 
 - [ ] Lidar mais com os usuarios em relacao aos livros
 - [ ] Fazer uma geração de PDF
+- [ ] Iniciar o programa com dados
+- [ ] Fazer o Swagger
