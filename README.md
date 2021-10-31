@@ -4,6 +4,7 @@ Dentro da plataforma, podemos começar a ler estes resumos. E nosso desafio est�
 
 A ideia é que a gente construa o suficiente da API para permitir essa navegação.
 
+O que está feito:
 
 - [x] Funcionalidades feitas
 - [ ] Testes
