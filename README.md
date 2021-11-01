@@ -7,7 +7,7 @@ A ideia é que a gente construa o suficiente da API para permitir essa navegaç�
 O que está feito:
 
 - [x] Funcionalidades feitas
-- [ ] Testes
+- [x] Testes
 
 
 Para um futuro:
