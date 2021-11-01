@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class Cookies {
 
-    public void writeAsJson(String key, Object object, HttpServletResponse response) {
+    public void createCookie(String key, Object object, HttpServletResponse response) {
         try {
             Cookie cookie = new Cookie(key, new ObjectMapper().writeValueAsString(object));
             cookie.setHttpOnly(true);

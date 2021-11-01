@@ -6,6 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import java.util.Objects;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -41,4 +43,5 @@ public class Chapter implements Comparable<Chapter>{
         }
         return this.text.substring(0, 50);
     }
+
 }

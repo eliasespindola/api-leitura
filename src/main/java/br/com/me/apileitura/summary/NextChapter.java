@@ -6,6 +6,12 @@ class NextChapter extends AboutChapter {
 
     @Override
     Chapter execute(List<Chapter> chapters, Integer pageChapter) {
-        return chapters.get(pageChapter);
+        try{
+            return chapters.get(pageChapter);
+        }
+        catch (IndexOutOfBoundsException ex){
+            throw new IllegalArgumentException("Could not find next chapter");
+        }
+
     }
 }
