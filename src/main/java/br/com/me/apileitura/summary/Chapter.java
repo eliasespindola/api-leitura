@@ -1,5 +1,6 @@
 package br.com.me.apileitura.summary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -37,6 +38,7 @@ public class Chapter implements Comparable<Chapter>{
         return sequence - chapter.sequence;
     }
 
+    @JsonIgnore
     public String getFiftyCharactersToText(){
         if(this.text.length() < 50){
             return this.text.substring(0,text.length());

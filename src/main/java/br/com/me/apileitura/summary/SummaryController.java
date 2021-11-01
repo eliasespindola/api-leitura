@@ -58,7 +58,8 @@ class SummaryController {
         if(possibleChapter.isEmpty()){
             return ResponseEntity.notFound().build();
         }
-        cookies.createCookie("chapter",possibleChapter.get(),response);
+        Cookie cookie = cookies.createCookie("chapter", possibleChapter.get());
+        response.addCookie(cookie);
         return ok(possibleChapter.get());
     }
 
@@ -69,7 +70,8 @@ class SummaryController {
         if(possibleChapter.isEmpty()){
             return ResponseEntity.notFound().build();
         }
-        cookies.createCookie("chapter",possibleChapter.get(),response);
+        Cookie cookie = cookies.createCookie("chapter", possibleChapter.get());
+        response.addCookie(cookie);
         return ok(possibleChapter.get());
     }
 
@@ -77,7 +79,8 @@ class SummaryController {
     public ResponseEntity currentSummary(@PathVariable("id") Long id, @CookieValue("chapter") Optional<String> currentChapter, HttpServletResponse response){
         Summary summary = summaryRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Summary not found"));
         if(currentChapter.isEmpty()){
-            cookies.createCookie("chapter",summary.getFirstChapter(),response);
+            Cookie cookie = cookies.createCookie("chapter", summary.getFirstChapter());
+            response.addCookie(cookie);
             return ResponseEntity.ok(summary.getFirstChapter());
         }
         return ResponseEntity.ok(currentChapter.get());
