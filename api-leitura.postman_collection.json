@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "e9c91e12-3dc3-4188-809c-a58ec34ea905",
+		"name": "api-leitura",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastro de resumo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Um livro bem legal\",\r\n    \"newChapters\": [\r\n        {\r\n            \"title\": \"Primeiro Capitulo\",\r\n            \"text\": \"Um texto bem grande show de bola\",\r\n            \"sequence\": \"1\"\r\n        },\r\n        {\r\n            \"title\": \"Terceiro Capitulo\",\r\n            \"text\": \"Um texto bem grande show de bola\",\r\n            \"sequence\": \"3\"\r\n        },\r\n        {\r\n            \"title\": \"Segundo Capitulo\",\r\n            \"text\": \"Lorem ipsum dolor sit amet, consectetur\",\r\n            \"sequence\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summaries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summaries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Erro de validação do usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"elias.ribeiroa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"elias.ribeiro@alura.com.br\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de resumo - erro title",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"\",\r\n    \"newChapters\": [\r\n        {\r\n            \"title\": \"Primeiro Capitulo\",\r\n            \"text\": \"Um texto bem grande show de bola\",\r\n            \"sequence\": \"1\"\r\n        },\r\n        {\r\n            \"title\": \"Terceiro Capitulo\",\r\n            \"text\": \"Um texto bem grande show de bola\",\r\n            \"sequence\": \"3\"\r\n        },\r\n        {\r\n            \"title\": \"Segundo Capitulo\",\r\n            \"text\": \"Lorem ipsum dolor sit amet, consectetur\",\r\n            \"sequence\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summaries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summaries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de resumo - erro chapters size",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"titulo\",\r\n    \"newChapters\": [\r\n   \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summaries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summaries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de resumo - erro chapters title  e sequence",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"titulo\",\r\n    \"newChapters\": [\r\n       {\r\n            \"title\": \"\",\r\n            \"text\": \"Um texto bem grande show de bola\",\r\n            \"sequence\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summaries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summaries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listagem summaries com 50 caracteres",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summaries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summaries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listagem primeiro capitulo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summaries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summaries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Capitulo anterior",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summary/1/previous-chapter?currentChapter=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summary",
+						"1",
+						"previous-chapter"
+					],
+					"query": [
+						{
+							"key": "currentChapter",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Capitulo seguinte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/summary/1/next-chapter?currentChapter=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summary",
+						"1",
+						"next-chapter"
+					],
+					"query": [
+						{
+							"key": "currentChapter",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Capitulo atual",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/summary/1/current",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summary",
+						"1",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finalizar resumo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/summary/1/finish?currentPage=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"summary",
+						"1",
+						"finish"
+					],
+					"query": [
+						{
+							"key": "currentPage",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
